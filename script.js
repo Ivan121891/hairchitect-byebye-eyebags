@@ -353,6 +353,7 @@
         endTime:        isoInTz(end,   BUSINESS_TZ),
         title:          `${name} — Microtox Glass Skin`,
         selectedTimezone: BUSINESS_TZ,
+        autoConfirm: false,
       });
 
       // Pixel tracking
