@@ -2,13 +2,13 @@
   "use strict";
 
   // ------- Configuration -------
-  const SERVICE_NAME = "Microtox Glass Skin";
+  const SERVICE_NAME = "ByeBye Eyebags";
   const SERVICE_DURATION_MIN = 60;
 
-  // GHL credentials — HairChitect Microtox Glass Skin
+  // GHL credentials — Hairchitect ByeBye Eyebags
   const GHL = {
     locationId: 'akCVeulrx9UG8kXb22pT',
-    calendarId: 'X7hxunThp1RAWdsiXHXt',
+    calendarId: 'u32joPRVjKyFWhrjQXau',
     userId:     '2tQreqXcDpaAiSBqlK7T',
     apiKey:     'pit-b1b6cfdf-d979-44e7-a426-69f83361e436',
     apiBase:    'https://services.leadconnectorhq.com',
@@ -338,8 +338,8 @@
         lastName: lastName || '-',
         email,
         phone,
-        source: 'Microtox Glass Skin LP',
-        tags: ['Microtox Glass Skin'],
+        source: 'ByeBye Eyebags LP',
+        tags: ['ByeBye Eyebags'],
       });
       const contactId = contactRes.contact?.id || contactRes.id;
 
@@ -351,7 +351,7 @@
         contactId,
         startTime:      isoInTz(start, BUSINESS_TZ),
         endTime:        isoInTz(end,   BUSINESS_TZ),
-        title:          `${name} — Microtox Glass Skin`,
+        title:          `${name} — ByeBye Eyebags`,
         selectedTimezone: BUSINESS_TZ,
         autoConfirm: false,
       });
