@@ -216,7 +216,12 @@
     }
 
     // Filter by GHL available slots, or fallback to all if not loaded
-    const availableSlots = ALL_SLOTS;
+    var availableSlots = ALL_SLOTS;
+    if (ghlSlotLabels && ghlSlotLabels.size > 0) {
+      availableSlots = ALL_SLOTS.filter(function (s) {
+        return ghlSlotLabels.has(s.label);
+      });
+    }
 
     // Morning block (9 AM - 11 AM)
     const morning = availableSlots.filter(s => s.hour >= 9 && s.hour <= 11);
@@ -287,7 +292,14 @@
     selectedTime = null;
     ghlSlotLabels = null;
     renderMonth();
-    renderTimes();
+    // Fetch GHL free slots for this date
+    fetchGhlSlots(selectedDate).then(function (labels) {
+      ghlSlotLabels = labels;
+      renderTimes();
+    }).catch(function () {
+      ghlSlotLabels = null;
+      renderTimes();
+    });
     timeSummary.textContent = formatLongDate(selectedDate);
     showStep("time");
   }
